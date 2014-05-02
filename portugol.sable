@@ -1,0 +1,146 @@
+Package src.portugol;
+
+Helpers
+	caractere = [0 .. 0xffff];
+	digito = ['0' .. '9'];
+	letra = [['a' .. 'z'] + ['A' .. 'Z']];
+	linha = 10 | 13 | 10 13;
+	espaco = ' ' | 9;
+
+States
+	normal, comentario;
+
+Tokens
+	{normal} id = (letra | '_') (letra | digito | '_')*;
+	{normal} branco = (espaco | linha)+;
+	{normal} c_programa = 'programa';
+	{normal} c_inicio = 'inicio';
+	{normal} c_fim = 'fim';
+	{normal} c_const = 'const';
+	{normal} c_real = 'real';
+	{normal} c_inteiro = 'inteiro';
+	{normal} c_caractere = 'caractere';
+	{normal} c_leia = 'leia';
+	{normal} c_escreva = 'escreva';
+	{normal} c_se = 'se';
+	{normal} c_entao = 'entao';
+	{normal} c_senao = 'senao';
+	{normal} c_fim_se = 'fim se';
+	{normal} c_avalie = 'avalie';
+	{normal} c_caso = 'caso';
+	{normal} c_fim_avalie = 'fim avalie';
+	{normal} c_enquanto = 'enquanto';
+	{normal} c_faca = 'faca';
+	{normal} c_fim_enquanto = 'fim enquanto';
+	{normal} c_repita = 'repita';
+	{normal} c_ate = 'ate';
+	{normal} c_para = 'para';
+	{normal} c_de = 'de';
+	{normal} c_fim_para = 'fim para';
+	{normal} c_passo = 'passo';
+	{normal} inteiro = digito+;
+	{normal} string = 27 [caractere - [27 + [10 + 13]]]* 27;
+	{normal} real = digito+ '.' digito+;
+	{normal} soma = '+';
+	{normal} sub = '-';
+	{normal} mult = '*';
+	{normal} div = '/';
+	{normal} menor = '<';
+	{normal} maior = '>';
+	{normal} menor_igual = '<=';
+	{normal} maior_igual = '>=';
+	{normal} igual = '=';
+	{normal} dif = '<>';
+	{normal} seta = '<-';
+	{normal} nao = 'nao';
+	{normal} e = 'e';
+	{normal} ou = 'ou';
+	{normal} xor = 'xor';
+	{normal} ponto = ',';
+	{normal} virgula = ',';
+	{normal} dois_pontos = ':';
+	{normal} ponto_virgula = ';';
+	{normal} a_par = '(';
+	{normal} f_par = ')';
+	{normal} a_col = '[';
+	{normal} f_col = ']';
+	{normal} a_cha = '{';
+	{normal} f_cha = '}';
+	{normal} comentario_linha = '//' [caractere - [10 + 13]]*;
+	{normal->comentario, comentario} comentario_aninhado = '/*' ([caractere - '*']* '*'+ [caractere - ['*' + '/']])* [caractere - '*']*;
+	{comentario} f_comentario_aninhado = '*'+ '/';
+
+Ignored Tokens
+	branco, comentario_linha, comentario_aninhado, f_comentario_aninhado;
+
+Productions
+	programa = cabecalho declaracao corpo c_fim ponto;
+	
+	cabecalho = c_programa id c_inicio;
+	
+	declaracao = var_declaracao_lista const_declaracao_lista;
+	
+	var_declaracao_lista =
+		{vazio} |
+		{unica} var_declaracao ponto_virgula |
+		{lista} var_declaracao_lista [separacao]:ponto_virgula var_declaracao [final]:ponto_virgula;
+	
+	var_declaracao = tipo dois_pontos var_lista;
+	
+	tipo = 
+		{real} c_real |
+		{inteiro} c_inteiro |
+		{caractere} c_caractere;
+	
+	var_lista =
+		{unica} var |
+		{lista} var_lista virgula var;
+	
+	var = 
+		{simples} id |
+		{vetor} id a_col inteiro f_col;
+	
+	const_declaracao_lista =
+		{vazio} |
+		{unica} const_declaracao ponto_virgula |
+		{lista} const_declaracao_lista [separacao]:ponto_virgula const_declaracao [final]:ponto_virgula;
+	
+	const_declaracao = c_const id valor;
+	
+	valor = 
+		{string} string |
+		{inteiro} inteiro |
+		{real} real;
+	
+	
+	corpo = comando_lista;
+	
+	comando_lista =
+		{vazio} |
+		{unico} comando ponto_virgula |
+		{lista} comando_lista [separacao]:ponto_virgula comando [final]:ponto_virgula;
+	
+	comando =
+		{atribuicao} id seta expressao |
+		{leia} c_leia a_par var_lista f_par |
+		{escreva} c_escreva a_par expressao_lista f_par;
+		
+	expressao_lista =
+		{unica} expressao |
+		{sequencia} expressao_lista virgula expressao;
+	
+	expressao =
+		{termo} termo |
+		{soma} expressao soma termo |
+		{sub} expressao sub termo;
+	
+	termo =
+		{fator} fator |
+		{mult} termo mult fator |
+		{div} termo div fator;
+	
+	fator =
+		{id} id |
+		{inteiro} inteiro |
+		{real} real |
+		{parenteses} a_par expressao f_par;

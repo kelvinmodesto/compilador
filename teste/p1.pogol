@@ -1,0 +1,8 @@
+programa primeiro inicio
+	inteiro: idade;
+	const pi 3;
+	
+	leia(idade);
+	escreva(idade);
+
+fim.
