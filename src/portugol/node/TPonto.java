@@ -9,12 +9,12 @@ public final class TPonto extends Token
 {
     public TPonto()
     {
-        super.setText(",");
+        super.setText(".");
     }
 
     public TPonto(int line, int pos)
     {
-        super.setText(",");
+        super.setText(".");
         setLine(line);
         setPos(pos);
     }

@@ -1,0 +1,51 @@
+programa maior inicio
+	inteiro: n, x1, x2;
+	
+	leia(x1);
+	leia(x2);
+	
+	// Comentario de uma linha
+	
+	se (x1 > x2) entao
+		escreva(x1);
+	senao
+		se (x2 < x1 ) entao
+			escreva(x2);
+		senao
+			escreva('Eles sao iguais');
+		fim se;
+	fim se;
+	
+	/* Comentario de
+	duas linhas */
+	
+	avalie (x1)
+		caso 1:
+			escreva('Um');
+		caso 2:
+			escreva('Dois');
+		senao:
+			escreva('Nao sei');
+	fim avalie;
+	
+	n <- 0;
+	enquanto (n <  10) faca
+		escreva('Contando: ', n);
+		n <- n + 1;
+	fim enquanto;
+	
+	n <- 0;
+	repita
+		escreva('Contando: ', n);
+		n <- n + 1;
+	ate (x>10);
+	
+	para n de 1 ate 5 faca
+		escreva('n=', n);
+	fim para;
+	
+	para n de 0 passo 2 ate 10 faca
+		escreva('Dois em dois n=', n)
+	fim para;
+
+fim.

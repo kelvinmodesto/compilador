@@ -1,6 +1,6 @@
 programa primeiro inicio
 	inteiro: idade;
-	const pi 3;
+	const pi 3.14;
 	
 	leia(idade);
 	escreva(idade);

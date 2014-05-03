@@ -69,222 +69,6 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseStart(Start node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAPrograma(APrograma node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseACabecalho(ACabecalho node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseADeclaracao(ADeclaracao node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAVarDeclaracao(AVarDeclaracao node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseARealTipo(ARealTipo node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAInteiroTipo(AInteiroTipo node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseACaractereTipo(ACaractereTipo node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAUnicaVarLista(AUnicaVarLista node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAListaVarLista(AListaVarLista node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseASimplesVar(ASimplesVar node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAVetorVar(AVetorVar node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAConstDeclaracao(AConstDeclaracao node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAStringValor(AStringValor node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAInteiroValor(AInteiroValor node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseARealValor(ARealValor node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseACorpo(ACorpo node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAVazioComandoLista(AVazioComandoLista node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAUnicoComandoLista(AUnicoComandoLista node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAListaComandoLista(AListaComandoLista node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAAtribuicaoComando(AAtribuicaoComando node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseALeiaComando(ALeiaComando node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAEscrevaComando(AEscrevaComando node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAUnicaExpressaoLista(AUnicaExpressaoLista node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseASequenciaExpressaoLista(ASequenciaExpressaoLista node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseATermoExpressao(ATermoExpressao node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseASomaExpressao(ASomaExpressao node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseASubExpressao(ASubExpressao node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAFatorTermo(AFatorTermo node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAMultTermo(AMultTermo node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseADivTermo(ADivTermo node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAIdFator(AIdFator node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAInteiroFator(AInteiroFator node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseARealFator(ARealFator node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseAParentesesFator(AParentesesFator node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTId(TId node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
     public void caseTBranco(TBranco node)
     {
         defaultCase(node);
@@ -441,6 +225,36 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseTNao(TNao node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTE(TE node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTOu(TOu node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTXor(TXor node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTId(TId node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseTInteiro(TInteiro node)
     {
         defaultCase(node);
@@ -519,31 +333,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseTSeta(TSeta node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTNao(TNao node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTE(TE node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTOu(TOu node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTXor(TXor node)
+    public void caseTAtrib(TAtrib node)
     {
         defaultCase(node);
     }
@@ -592,18 +382,6 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTFCol(TFCol node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTACha(TACha node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTFCha(TFCha node)
     {
         defaultCase(node);
     }

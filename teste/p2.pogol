@@ -1,0 +1,10 @@
+programa circulo inicio
+	inteiro: raio, comp;
+	const pi 3,14;
+	
+	leia(raio);
+	comp <- 2 * pi * raio;
+	area <- pi * raio * raio;
+	escreva(comp, raio);
+
+fim.

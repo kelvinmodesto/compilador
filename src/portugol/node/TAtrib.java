@@ -5,16 +5,16 @@ package portugol.node;
 import portugol.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TACha extends Token
+public final class TAtrib extends Token
 {
-    public TACha()
+    public TAtrib()
     {
-        super.setText("{");
+        super.setText("<-");
     }
 
-    public TACha(int line, int pos)
+    public TAtrib(int line, int pos)
     {
-        super.setText("{");
+        super.setText("<-");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class TACha extends Token
     @Override
     public Object clone()
     {
-      return new TACha(getLine(), getPos());
+      return new TAtrib(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTACha(this);
+        ((Analysis) sw).caseTAtrib(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TACha text.");
+        throw new RuntimeException("Cannot change TAtrib text.");
     }
 }
