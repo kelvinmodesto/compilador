@@ -68,3 +68,124 @@ Tokens
 	{normal} comentario_linha = '//' [caractere - [10 + 13]]*;
 	{normal->comentario, comentario} comentario_aninhado = '/*' ([caractere - '*']* '*'+ [caractere - ['*' + '/']])* [caractere - '*']*;
 	{comentario} f_comentario_aninhado = '*'+ '/';
+
+	
+Ignored Tokens
+	branco, comentario_linha, comentario_aninhado, f_comentario_aninhado;
+	
+
+Productions
+	programa = cabecalho declaracoes comandos c_fim ponto;
+	
+	cabecalho = c_programa id c_inicio;
+	
+	declaracoes =
+		{declaracao} declaracao |
+		{declaracoes} declaracoes declaracao;
+		
+	declaracao =
+		{var_declaracao} var_declaracao |
+		{const_declaracao} const_declaracao;
+	
+	var_declaracao = tipo dois_pontos var mais_vars* ponto_virgula;
+	
+	tipo = 
+		{real} c_real |
+		{inteiro} c_inteiro |
+		{caractere} c_caractere;
+	
+	mais_vars =
+		virgula var;
+	
+	var = 
+		{simples} id |
+		{vetor} id a_col inteiro f_col;
+	
+	
+	const_declaracao =
+		c_const id valor ponto_virgula;
+	
+	valor = 
+		{string} string |
+		{real} real|
+		{inteiro} inteiro;
+
+
+
+
+
+	comandos =
+		{comando} comando |
+		{comandos} comandos comando;
+
+	comando = 
+		{leia} leia |
+		{escreva} escreva |
+		{atribuicao} atribuicao |
+		{se} c_se a_par expressao_logica f_par c_entao comandos se_senao c_fim_se ponto_virgula |
+		{avalie} c_avalie a_par expressao f_par caso* caso_senao c_fim_avalie ponto_virgula |
+		{enquanto} c_enquanto a_par expressao_logica f_par c_faca comandos c_fim_enquanto ponto_virgula |
+		{repita} c_repita comandos c_ate a_par expressao_logica f_par ponto_virgula |
+		{para} c_para id c_de [de]:inteiro c_ate [ate]:inteiro c_faca comandos c_fim_para ponto_virgula |
+		{para_passo} c_para id c_de [de]:inteiro c_passo [passo]:inteiro c_ate [ate]:inteiro c_faca comandos c_fim_para ponto_virgula;
+		
+	se_senao = 
+		{vazio} |
+		{senao} c_senao comandos;
+	
+	caso =
+		{caso}  c_caso valor dois_pontos comandos;
+		
+	caso_senao = 
+		{vazio} |
+		{senao} c_senao dois_pontos comandos;
+	
+
+
+	
+	atribuicao = id atrib expressao ponto_virgula;
+	
+	leia = c_leia a_par var mais_vars* f_par ponto_virgula;
+	
+	escreva = c_escreva a_par expressao mais_expressao* f_par ponto_virgula;
+		
+	mais_expressao =
+		virgula expressao;
+	
+	expressao =
+		{termo} termo |
+		{soma} expressao soma termo |
+		{sub} expressao sub termo;
+	
+	termo =
+		{fator} fator |
+		{mult} termo mult fator |
+		{div} termo div fator;
+	
+	fator =
+		{id} id |
+		{inteiro} inteiro |
+		{real} real |
+		{parenteses} a_par expressao f_par;
+	
+	expressao_logica =
+		{exp_logica} exps_logicas |
+		{e_exp_logica} expressao_logica e exps_logicas |
+		{ou_exp_logica} expressao_logica ou exps_logicas |
+		{xor_exp_logica} expressao_logica xor exps_logicas;
+		
+
+	exps_logicas = 
+		{exp_logica} 		exp_logica |
+		{nao_exp_logica} 	nao exp_logica;
+	
+	
+	exp_logica =
+		{igual} 		[exp1]:expressao igual [exp2]:expressao |
+		{dif} 			[exp1]:expressao dif [exp2]:expressao |
+		{menor_igual} 	[exp1]:expressao menor_igual [exp2]:expressao |
+		{maior_igual} 	[exp1]:expressao maior_igual [exp2]:expressao |
+		{menor} 		[exp1]:expressao menor [exp2]:expressao |
+		{maior} 		[exp1]:expressao maior [exp2]:expressao |
+		{parenteses}	a_par expressao_logica f_par;				// Para aceitar ordem de precedencia com ()
+		

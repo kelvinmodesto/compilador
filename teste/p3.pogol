@@ -12,7 +12,7 @@ programa maior inicio
 		se (x2 < x1 ) entao
 			escreva(x2);
 		senao
-			escreva('Eles sao iguais');
+			escreva(x);
 		fim se;
 	fim se;
 	
@@ -21,31 +21,31 @@ programa maior inicio
 	
 	avalie (x1)
 		caso 1:
-			escreva('Um');
+			escreva(x);
 		caso 2:
-			escreva('Dois');
+			escreva(x);
 		senao:
-			escreva('Nao sei');
+			escreva(x);
 	fim avalie;
 	
 	n <- 0;
 	enquanto (n <  10) faca
-		escreva('Contando: ', n);
+		escreva(x, n);
 		n <- n + 1;
 	fim enquanto;
 	
 	n <- 0;
 	repita
-		escreva('Contando: ', n);
+		escreva(x, n);
 		n <- n + 1;
 	ate (x>10);
 	
 	para n de 1 ate 5 faca
-		escreva('n=', n);
+		escreva(x, n);
 	fim para;
 	
 	para n de 0 passo 2 ate 10 faca
-		escreva('Dois em dois n=', n)
+		escreva(x, n);
 	fim para;
 
 fim.

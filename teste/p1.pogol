@@ -1,8 +1,55 @@
-programa primeiro inicio
-	inteiro: idade;
-	const pi 3.14;
+programa maior inicio
+	inteiro: n, x1, x2;
+	const pi 3,14;
+	inteiro: n, x1, x2;
 	
-	leia(idade);
-	escreva(idade);
-
+	leia(x2);
+	escreva(x,y,z, x+5+30*20,y,z, x+5+30*20);
+	n <- 0;
+	n <- 0;
+	escreva(x,y,z);
+	
+	
+	se (nao x1 = x2 e x1 = x2 e nao x1 = x2) entao
+		escreva(x1);
+	senao
+		se (x2 = x1 ) entao
+			escreva(x2);
+		fim se;
+	fim se;
+	
+	
+	
+	avalie (x1)
+		caso 1:
+			escreva(asfd);
+		caso 2:
+			escreva(aa);
+		senao:
+			escreva(b);
+	fim avalie;
+	
+	
+	n <- 0;
+	enquanto (n <  10) faca
+		escreva(fasdf, n);
+		n <- n + 1;
+	fim enquanto;
+	
+	
+	n <- 0;
+	repita
+		escreva(aaa, n);
+		n <- n + 1;
+	ate (x>10 e nao x < y);
+	
+	
+	para n de 1 ate 5 faca
+		escreva(fa, n);
+	fim para;
+	
+	para n de 0 passo 2 ate 10 faca
+		escreva(xx, n);
+	fim para;
+	
 fim.
